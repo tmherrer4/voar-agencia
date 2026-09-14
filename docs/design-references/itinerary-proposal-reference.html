@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA Luxury Travel | Proposta Exclusiva - Europa Imperial</title>
+
+  <!-- Google Fonts: Playfair Display for Editorial Serifs, Plus Jakarta Sans for Body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Configuration for Luxury Editorial Design Tokens -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              ivory: '#FAF9F6',
+              paper: '#F4F1EA',
+              obsidian: '#121212',
+              charcoal: '#1E1E1E',
+              gold: '#C5A059',
+              goldHover: '#B28E46',
+              goldMuted: 'rgba(197, 160, 89, 0.15)',
+              sand: '#E6E2D8',
+              muted: '#706E6B',
+              champagne: '#F7F3E9'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Smooth Transitions & Custom Accordion Animations */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease-in-out, padding 0.35s ease;
+      opacity: 0;
+    }
+    .accordion-content.active {
+      opacity: 1;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #D4AF37 0%, #C5A059 50%, #997819 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+    }
+    .glass-card {
+      background: rgba(250, 249, 246, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(197, 160, 89, 0.2);
+    }
+    .glass-card-dark {
+      background: rgba(18, 18, 18, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(197, 160, 89, 0.25);
+    }
+    /* Hide Scrollbar for clean visuals */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-brand-ivory text-brand-obsidian font-sans antialiased selection:bg-brand-gold/30 selection:text-brand-obsidian flex flex-col min-h-screen">
+
+  <!-- HEADER & BRANDING BAR -->
+  <header class="sticky top-0 z-40 w-full glass-card border-b border-brand-gold/20 shadow-xs transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo & Copilot Badge -->
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-full gold-gradient-bg flex items-center justify-center text-brand-obsidian font-serif font-bold text-xl shadow-sm">
+          A
+        </div>
+        <div>
+          <span class="font-serif text-lg tracking-wider uppercase font-semibold block leading-tight">AURA <span class="text-[10px] tracking-widest font-sans text-brand-gold font-normal">LUXURY TRAVEL</span></span>
+          <span class="text-[10px] text-brand-muted tracking-wider uppercase">Copiloto Comercial de Inteligência Artificial</span>
+        </div>
+      </div>
+
+      <!-- Header Actions -->
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <!-- Architecture Documentation Modal Trigger -->
+        <button onclick="openArchitectureModal()" class="px-3 py-1.5 text-xs font-mono border border-brand-gold/40 text-brand-gold rounded-full hover:bg-brand-gold/10 transition flex items-center space-x-1">
+          <i class="fa-solid fa-code text-[11px]"></i>
+          <span class="hidden sm:inline">Arquitetura JSON</span>
+        </button>
+
+        <a href="#proposta-comercial" class="px-4 py-2 text-xs font-bold uppercase tracking-wider gold-gradient-bg text-brand-obsidian rounded-full shadow-sm hover:opacity-95 transition">
+          Ver Investimento
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- 1. HERO SECTION -->
+    <section class="relative h-[75vh] min-h-[520px] max-h-[750px] w-full overflow-hidden bg-brand-obsidian text-white flex items-end">
+      <!-- Background Image with Subtle Parallax Zoom -->
+      <img id="hero-bg" src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=2000&q=80" alt="Londres a Munique" class="absolute inset-0 w-full h-full object-cover object-center opacity-65 scale-105 transition-transform duration-1000">
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-obsidian via-brand-obsidian/30 to-transparent"></div>
+
+      <!-- Hero Banner Content -->
+      <div class="relative max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-16">
+        
+        <div class="flex items-center space-x-3 mb-4">
+          <span class="px-3 py-1 bg-brand-gold/90 text-brand-obsidian text-[11px] uppercase font-bold tracking-widest rounded-full shadow-sm">Proposta Personalizada</span>
+          <span class="text-xs text-brand-sand/90 font-mono tracking-widest uppercase"><i class="fa-regular fa-clock mr-1.5"></i> 10 Dias · 9 Noites</span>
+        </div>
+
+        <h1 id="hero-title" class="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white max-w-3xl leading-tight tracking-wide mb-4">
+          Londres, Paris, Zurique & Munique
+        </h1>
+        
+        <p id="hero-subtitle" class="text-sm sm:text-base text-brand-sand/90 max-w-2xl font-light leading-relaxed mb-8">
+          Uma viagem criada para você e sua família. Curadoria de arte, alta gastronomia, alpes majestosos e conforto absoluto.
+        </p>
+
+        <!-- Personalization Context Note (IA Reason) -->
+        <div class="bg-brand-obsidian/80 backdrop-blur-md border border-brand-gold/30 rounded-2xl p-4 max-w-2xl flex items-start space-x-3">
+          <div class="w-8 h-8 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold flex-shrink-0 mt-0.5">
+            <i class="fa-solid fa-wand-magic-sparkles text-xs"></i>
+          </div>
+          <div>
+            <span class="text-[11px] uppercase tracking-wider font-bold text-brand-gold block">Design Personalizado por IA</span>
+            <p id="personalization-note" class="text-xs text-brand-sand/80 leading-relaxed mt-0.5">
+              Como vocês estarão viajando com crianças, este roteiro foi desenhado com alternância estratégica entre atração cultural e períodos de relaxamento em parques e trens panorâmicos.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. RESUMO DA VIAGEM -->
+    <section class="py-12 bg-brand-paper border-b border-brand-gold/20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          
+          <div class="p-4 rounded-xl border border-brand-gold/15 bg-brand-ivory/60">
+            <span class="block text-2xl sm:text-3xl font-serif font-bold text-brand-gold mb-1">10 Dias</span>
+            <span class="text-xs text-brand-muted uppercase tracking-wider font-medium">Duração Total</span>
+          </div>
+
+          <div class="p-4 rounded-xl border border-brand-gold/15 bg-brand-ivory/60">
+            <span class="block text-2xl sm:text-3xl font-serif font-bold text-brand-gold mb-1">4 Cidades</span>
+            <span class="text-xs text-brand-muted uppercase tracking-wider font-medium">3 Países Europeus</span>
+          </div>
+
+          <div class="p-4 rounded-xl border border-brand-gold/15 bg-brand-ivory/60">
+            <span class="block text-2xl sm:text-3xl font-serif font-bold text-brand-gold mb-1">Boutique</span>
+            <span class="text-xs text-brand-muted uppercase tracking-wider font-medium">Hotéis Selecionados</span>
+          </div>
+
+          <div class="p-4 rounded-xl border border-brand-gold/15 bg-brand-ivory/60">
+            <span class="block text-2xl sm:text-3xl font-serif font-bold text-brand-gold mb-1">Sob Medida</span>
+            <span class="text-xs text-brand-muted uppercase tracking-wider font-medium">Ritmo Equilibrado</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ROTA DE VIAGEM -->
+    <section class="py-12 bg-brand-ivory border-b border-brand-gold/20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-xl mx-auto mb-8">
+          <span class="text-[11px] uppercase font-bold tracking-widest text-brand-gold block mb-1">Itinerário Sequencial</span>
+          <h2 class="text-2xl font-serif font-bold">Sua Rota pela Europa</h2>
+        </div>
+
+        <!-- Route Timeline Chips -->
+        <div class="relative flex flex-col md:flex-row items-center justify-between gap-4 md:gap-2">
+          
+          <!-- Route Connecting Line (Desktop) -->
+          <div class="hidden md:block absolute top-1/2 left-10 right-10 h-[2px] bg-brand-gold/30 -translate-y-1/2 z-0"></div>
+
+          <!-- Destination 1: London -->
+          <div class="relative z-10 w-full md:w-auto bg-brand-ivory border border-brand-gold/30 rounded-2xl p-4 flex items-center space-x-3 shadow-xs">
+            <div class="w-10 h-10 rounded-full gold-gradient-bg flex items-center justify-center text-brand-obsidian font-bold text-xs shadow-xs">01</div>
+            <div>
+              <span class="text-xs uppercase font-bold tracking-wider block">Londres</span>
+              <span class="text-[11px] text-brand-muted">3 Noites · Inglaterra</span>
+            </div>
+          </div>
+
+          <div class="text-brand-gold text-xs font-mono font-bold flex items-center space-x-1 my-1 md:my-0">
+            <i class="fa-solid fa-train"></i>
+            <span class="text-[10px]">Eurostar</span>
+          </div>
+
+          <!-- Destination 2: Paris -->
+          <div class="relative z-10 w-full md:w-auto bg-brand-ivory border border-brand-gold/30 rounded-2xl p-4 flex items-center space-x-3 shadow-xs">
+            <div class="w-10 h-10 rounded-full gold-gradient-bg flex items-center justify-center text-brand-obsidian font-bold text-xs shadow-xs">02</div>
+            <div>
+              <span class="text-xs uppercase font-bold tracking-wider block">Paris</span>
+              <span class="text-[11px] text-brand-muted">3 Noites · França</span>
+            </div>
+          </div>
+
+          <div class="text-brand-gold text-xs font-mono font-bold flex items-center space-x-1 my-1 md:my-0">
+            <i class="fa-solid fa-train"></i>
+            <span class="text-[10px]">TGV Lyria</span>
+          </div>
+
+          <!-- Destination 3: Zurich -->
+          <div class="relative z-10 w-full md:w-auto bg-brand-ivory border border-brand-gold/30 rounded-2xl p-4 flex items-center space-x-3 shadow-xs">
+            <div class="w-10 h-10 rounded-full gold-gradient-bg flex items-center justify-center text-brand-obsidian font-bold text-xs shadow-xs">03</div>
+            <div>
+              <span class="text-xs uppercase font-bold tracking-wider block">Zurique & Alpes</span>
+              <span class="text-[11px] text-brand-muted">2 Noites · Suíça</span>
+            </div>
+          </div>
+
+          <div class="text-brand-gold text-xs font-mono font-bold flex items-center space-x-1 my-1 md:my-0">
+            <i class="fa-solid fa-train"></i>
+            <span class="text-[10px]">Panorâmico</span>
+          </div>
+
+          <!-- Destination 4: Munich -->
+          <div class="relative z-10 w-full md:w-auto bg-brand-ivory border border-brand-gold/30 rounded-2xl p-4 flex items-center space-x-3 shadow-xs">
+            <div class="w-10 h-10 rounded-full gold-gradient-bg flex items-center justify-center text-brand-obsidian font-bold text-xs shadow-xs">04</div>
+            <div>
+              <span class="text-xs uppercase font-bold tracking-wider block">Munique</span>
+              <span class="text-[11px] text-brand-muted">1 Noite · Alemanha</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. ROTEIRO EM ACORDEÃO (ELEMENTO PRINCIPAL DA OPÇÃO 1) -->
+    <section class="py-16 bg-brand-ivory">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header & Controls -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-brand-gold/20 gap-4">
+          <div>
+            <span class="text-[11px] uppercase font-bold tracking-widest text-brand-gold block mb-1">Roteiro Detalhado Dia a Dia</span>
+            <h2 class="text-3xl font-serif font-bold">Experiência em Acordeão</h2>
+          </div>
+          <div class="flex items-center space-x-3">
+            <button onclick="expandAllAccordion()" class="text-xs font-medium text-brand-gold hover:underline flex items-center space-x-1">
+              <i class="fa-solid fa-angles-down text-[10px]"></i>
+              <span>Expandir Todos</span>
+            </button>
+            <span class="text-brand-gold/40">•</span>
+            <button onclick="collapseAllAccordion()" class="text-xs font-medium text-brand-gold hover:underline flex items-center space-x-1">
+              <i class="fa-solid fa-angles-up text-[10px]"></i>
+              <span>Recolher Todos</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ACCORDION CONTAINER (RENDERED DYNAMICALLY BY JAVASCRIPT ENGINE) -->
+        <div id="accordion-container" class="space-y-4">
+          <!-- Dynamically populated from TRAVEL_PROPOSAL_DATA -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. HOTÉIS ("ONDE VOCÊ VAI FICAR") -->
+    <section class="py-16 bg-brand-paper border-t border-b border-brand-gold/20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-xl mx-auto mb-12">
+          <span class="text-[11px] uppercase font-bold tracking-widest text-brand-gold block mb-1">Acomodações Selecionadas</span>
+          <h2 class="text-3xl font-serif font-bold">Onde Você Vai Ficar</h2>
+          <p class="text-xs text-brand-muted mt-2">Hotéis boutique e de luxo centralmente localizados com excelente infraestrutura para sua família.</p>
+        </div>
+
+        <!-- Hotels Cards Grid -->
+        <div id="hotels-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Dynamically populated from TRAVEL_PROPOSAL_DATA -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. EXPERIÊNCIAS ("EXPERIÊNCIAS QUE FAZEM A VIAGEM") -->
+    <section class="py-16 bg-brand-ivory">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-brand-gold/20 gap-4">
+          <div>
+            <span class="text-[11px] uppercase font-bold tracking-widest text-brand-gold block mb-1">Curadoria Exclusiva</span>
+            <h2 class="text-3xl font-serif font-bold">Experiências Principais</h2>
+          </div>
+
+          <!-- Category Filter Chips -->
+          <div class="flex items-center space-x-1.5 overflow-x-auto no-scrollbar pb-1">
+            <button onclick="filterExperiences('all')" class="exp-chip active px-3 py-1 rounded-full text-xs font-medium border border-brand-gold bg-brand-gold text-brand-obsidian transition">Todas</button>
+            <button onclick="filterExperiences('culture')" class="exp-chip px-3 py-1 rounded-full text-xs font-medium border border-brand-gold/30 hover:bg-brand-gold/10 transition">Cultura</button>
+            <button onclick="filterExperiences('gastronomy')" class="exp-chip px-3 py-1 rounded-full text-xs font-medium border border-brand-gold/30 hover:bg-brand-gold/10 transition">Gastronomia</button>
+            <button onclick="filterExperiences('nature')" class="exp-chip px-3 py-1 rounded-full text-xs font-medium border border-brand-gold/30 hover:bg-brand-gold/10 transition">Natureza</button>
+          </div>
+        </div>
+
+        <!-- Experiences Grid -->
+        <div id="experiences-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamically populated from TRAVEL_PROPOSAL_DATA -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. OPÇÕES DE PREÇO (3 NÍVEIS COMERCIAIS) -->
+    <section id="proposta-comercial" class="py-16 bg-brand-paper border-t border-b border-brand-gold/20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-[11px] uppercase font-bold tracking-widest text-brand-gold block mb-1">Apresentação Comercial</span>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold">Opções de Investimento</h2>
+          <p class="text-xs text-brand-muted mt-2">Escolha a categoria que melhor atende aos desejos da sua família para esta jornada.</p>
+        </div>
+
+        <!-- Tiers Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+          
+          <!-- ESSENTIAL TIER -->
+          <div id="tier-card-essential" onclick="selectTier('essential')" class="tier-card cursor-pointer rounded-2xl p-6 transition-all duration-300 border border-brand-gold/30 bg-brand-ivory hover:border-brand-gold flex flex-col justify-between relative shadow-xs">
+            <div>
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-gray-200 text-gray-700 rounded">Essential</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 bg-amber-500/10 text-amber-600 font-bold rounded">DEMO</span>
+              </div>
+              
+              <h3 class="text-xl font-serif font-bold mb-2">Experiência Essencial</h3>
+              <p class="text-xs text-brand-muted mb-6">Conforto e eficiência comercial com localização central e ingressos prioritários.</p>
+              
+              <div class="text-3xl font-serif font-bold text-brand-gold mb-6">
+                R$ 22.890 <span class="text-xs font-sans font-normal text-brand-muted">/ pessoa</span>
+              </div>
+
+              <ul class="text-xs space-y-3 mb-8 text-brand-muted">
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Hotéis 4 Estrelas em área central</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Eurostar Classe Standard</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Ingressos sem fila para atrações principais</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Suporte digital via App AURA 24h</li>
+              </ul>
+            </div>
+            
+            <button class="w-full py-3 rounded-xl border border-brand-gold text-brand-gold text-xs font-bold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-obsidian transition">
+              Selecionar Essential
+            </button>
+          </div>
+
+          <!-- COMFORT TIER (RECOMMENDED) -->
+          <div id="tier-card-comfort" onclick="selectTier('comfort')" class="tier-card cursor-pointer rounded-2xl p-6 transition-all duration-300 border-2 border-brand-gold bg-brand-ivory shadow-xl flex flex-col justify-between relative transform md:-translate-y-2">
+            
+            <!-- Recommended Badge -->
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 gold-gradient-bg text-brand-obsidian text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-sm">
+              Mais Escolhido / Recomendado
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-4 mt-2">
+                <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-gold/20 text-brand-gold rounded">Comfort</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 bg-amber-500/10 text-amber-600 font-bold rounded">DEMO</span>
+              </div>
+              
+              <h3 class="text-xl font-serif font-bold mb-2">Conforto Superior</h3>
+              <p class="text-xs text-brand-muted mb-6">Equilíbrio ideal entre hotéis boutique, passeios guiados privativos e experiências gastronômicas.</p>
+              
+              <div class="text-3xl font-serif font-bold text-brand-gold mb-6">
+                R$ 27.490 <span class="text-xs font-sans font-normal text-brand-muted">/ pessoa</span>
+              </div>
+
+              <ul class="text-xs space-y-3 mb-8 text-brand-muted">
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Hotéis 4★ Superior / Boutique Central</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Trem Eurostar em Classe Premier</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Guia privativo em português no Louvre e Tower Bridge</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Cruzeiro Gastronômico Noturno no Rio Sena</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Transfers privativos executivos em todas as estações</li>
+              </ul>
+            </div>
+
+            <button class="w-full py-3 rounded-xl gold-gradient-bg text-brand-obsidian text-xs font-bold uppercase tracking-wider shadow-sm hover:opacity-95 transition">
+              Selecionar Comfort
+            </button>
+          </div>
+
+          <!-- PREMIUM TIER -->
+          <div id="tier-card-premium" onclick="selectTier('premium')" class="tier-card cursor-pointer rounded-2xl p-6 transition-all duration-300 border border-brand-gold/30 bg-brand-ivory hover:border-brand-gold flex flex-col justify-between relative shadow-xs">
+            <div>
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-purple-500/20 text-purple-700 rounded">Premium Luxo</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 bg-amber-500/10 text-amber-600 font-bold rounded">DEMO</span>
+              </div>
+              
+              <h3 class="text-xl font-serif font-bold mb-2">Ultraluxo & Exclusividade</h3>
+              <p class="text-xs text-brand-muted mb-6">Para quem exige os hotéis 5★ mais icônicos da Europa, primeira classe e concierge privativo dedicado.</p>
+              
+              <div class="text-3xl font-serif font-bold text-brand-gold mb-6">
+                R$ 34.900 <span class="text-xs font-sans font-normal text-brand-muted">/ pessoa</span>
+              </div>
+
+              <ul class="text-xs space-y-3 mb-8 text-brand-muted">
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Hotéis 5★ Palacianos (Le Meurice Paris, Savoy London)</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Primeira Classe em todos os trens e trechos</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Experiência VIP em Helicóptero nos Alpes Suíços</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Jantar harmonizado em restaurante Michelin 2★</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-2.5"></i> Concierge presencial exclusivo 24/7 na Europa</li>
+              </ul>
+            </div>
+
+            <button class="w-full py-3 rounded-xl border border-brand-gold text-brand-gold text-xs font-bold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-obsidian transition">
+              Selecionar Premium
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. CTA FINAL DE CONVERSÃO -->
+    <section class="py-20 bg-brand-obsidian text-white text-center relative overflow-hidden">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <span class="text-xs uppercase font-bold tracking-widest text-brand-gold block mb-3">Pronto para Viajar?</span>
+        
+        <h2 class="text-3xl sm:text-5xl font-serif font-bold mb-6 max-w-2xl mx-auto leading-tight">
+          Gostou Desta Viagem?
+        </h2>
+
+        <p class="text-sm text-brand-sand/80 max-w-xl mx-auto leading-relaxed mb-8 font-light">
+          Vamos transformar este roteiro sob medida na sua próxima grande memória em família. Nossos consultores sêniores estão prontos para finalizar seus detalhes.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button onclick="openBookingModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl gold-gradient-bg text-brand-obsidian font-bold text-xs uppercase tracking-widest shadow-lg hover:opacity-95 transition transform hover:scale-105">
+            Quero Reservar Esta Viagem
+          </button>
+          <button onclick="openConsultantModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-brand-gold/50 text-brand-gold font-bold text-xs uppercase tracking-widest hover:bg-brand-gold/10 transition">
+            Falar com Consultor AI
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. BARRA STICKY DE RESERVA RÁPIDA -->
+  <aside class="sticky bottom-0 z-40 bg-brand-obsidian text-white border-t border-brand-gold/30 shadow-2xl py-3.5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div>
+        <span class="text-[10px] uppercase tracking-widest text-brand-gold block font-semibold">Opção Selecionada:</span>
+        <div class="flex items-center space-x-2">
+          <span id="sticky-tier-name" class="font-serif text-sm sm:text-base font-bold">Categoria Comfort</span>
+          <span class="text-brand-gold">•</span>
+          <span id="sticky-tier-price" class="text-xs sm:text-sm text-brand-sand font-mono">R$ 27.490 / pessoa</span>
+        </div>
+      </div>
+
+      <button onclick="openBookingModal()" class="px-5 py-2.5 rounded-xl gold-gradient-bg text-brand-obsidian text-xs font-bold uppercase tracking-wider shadow hover:opacity-95 transition flex items-center space-x-2">
+        <i class="fa-solid fa-paper-plane text-xs"></i>
+        <span>Solicitar Reserva</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MODAL 1: BOOKING & RESERVATION -->
+  <div id="booking-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-brand-ivory border border-brand-gold/30 rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-brand-muted hover:text-brand-gold text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-full gold-gradient-bg mx-auto flex items-center justify-center text-brand-obsidian text-xl shadow mb-3">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 class="font-serif text-2xl font-bold">Solicitação de Reserva</h3>
+        <p class="text-xs text-brand-muted mt-1">Sua proposta <span id="modal-selected-tier-name" class="text-brand-gold font-bold">Comfort</span> será enviada diretamente ao seu consultor sênior.</p>
+      </div>
+
+      <form onsubmit="handleBookingSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider mb-1">Seu Nome Completo</label>
+          <input type="text" required placeholder="Ex: Rodrigo Souza" class="w-full px-3.5 py-2.5 rounded-lg border border-brand-gold/30 bg-transparent text-sm focus:outline-none focus:border-brand-gold">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider mb-1">E-mail</label>
+          <input type="email" required placeholder="rodrigo@exemplo.com" class="w-full px-3.5 py-2.5 rounded-lg border border-brand-gold/30 bg-transparent text-sm focus:outline-none focus:border-brand-gold">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider mb-1">WhatsApp de Contato</label>
+          <input type="tel" required placeholder="(11) 99999-9999" class="w-full px-3.5 py-2.5 rounded-lg border border-brand-gold/30 bg-transparent text-sm focus:outline-none focus:border-brand-gold">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider mb-1">Ajustes Solicitados (Opcional)</label>
+          <textarea rows="2" placeholder="Gostaria de adicionar 1 dia extra em Paris ou alterar o voo..." class="w-full px-3.5 py-2.5 rounded-lg border border-brand-gold/30 bg-transparent text-sm focus:outline-none focus:border-brand-gold"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-xl gold-gradient-bg text-brand-obsidian font-bold text-xs uppercase tracking-widest shadow hover:opacity-95 transition">
+          Confirmar & Enviar para Agência
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: HOTEL DETAILS MODAL -->
+  <div id="hotel-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-brand-ivory border border-brand-gold/30 rounded-2xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeHotelModal()" class="absolute top-4 right-4 text-brand-muted hover:text-brand-gold text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div id="hotel-modal-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: ARCHITECTURE & JSON SCHEMA INSTRUCTIONS -->
+  <div id="architecture-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-brand-obsidian text-white border border-brand-gold/30 rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[85vh] overflow-y-auto no-scrollbar">
+      <button onclick="closeArchitectureModal()" class="absolute top-4 right-4 text-brand-sand hover:text-brand-gold text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h3 class="font-serif text-2xl font-bold text-brand-gold mb-2">Arquitetura de Dados & Instruções</h3>
+      <p class="text-xs text-brand-sand/70 mb-4">Este protótipo foi construído segundo os princípios de desacoplamento da SKILL 10 Travel Proposal Designer.</p>
+
+      <div class="space-y-4 text-xs font-mono bg-black/50 p-4 rounded-xl border border-brand-gold/20 text-brand-sand/90">
+        <p class="text-brand-gold">// 1. Separação Estrita de Responsabilidades:</p>
+        <p>O arquivo HTML consome o objeto global JS `TRAVEL_PROPOSAL_DATA` contendo todos os trechos, hotéis, fotos do Unsplash e precificação DEMO.</p>
+        
+        <p class="text-brand-gold">// 2. Como Rodar Localmente:</p>
+        <p>Basta salvar o código como `index.html` e abrir diretamente em qualquer navegador moderno (Chrome, Safari, Edge, Firefox) sem dependência de build steps ou node server.</p>
+
+        <p class="text-brand-gold">// 3. Integração com Backend/API:</p>
+        <p>Em ambiente de produção, o backend (Python/Node/LLM) deve injetar o JSON estruturado diretamente na const `TRAVEL_PROPOSAL_DATA` para re-renderizar a proposta instantaneamente.</p>
+      </div>
+
+      <button onclick="closeArchitectureModal()" class="mt-6 w-full py-3 rounded-xl border border-brand-gold text-brand-gold font-bold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-brand-obsidian transition">
+        Fechar Documentação
+      </button>
+    </div>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       1. DECOUPLED DATA SCHEMA (TRAVEL_PROPOSAL_DATA)
+       Strict separation between travel content logic and UI presentation engines
+       ========================================================================== */
+    const TRAVEL_PROPOSAL_DATA = {
+      meta: {
+        title: "Londres, Paris, Zurique & Munique",
+        subtitle: "Uma viagem criada para você e sua família. Curadoria de arte, alta gastronomia, alpes majestosos e conforto absoluto.",
+        durationDays: 10,
+        nights: 9,
+        travelers: "2 Adultos, 1 Criança",
+        season: "Outubro (Outono Europeu)",
+        heroImage: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=2000&q=80",
+        personalizationNote: "Como vocês estarão viajando com crianças, este roteiro foi desenhado com alternância estratégica entre atração cultural e períodos de relaxamento em parques e trens panorâmicos."
+      },
+      tiers: {
+        essential: { name: "Essential", price: "R$ 22.890", badge: "DEMO" },
+        comfort: { name: "Comfort Superior", price: "R$ 27.490", badge: "RECOMENDADO" },
+        premium: { name: "Premium Luxo", price: "R$ 34.900", badge: "DEMO" }
+      },
+      route: [
+        { city: "Londres", country: "Inglaterra", nights: 3, transport: "Eurostar" },
+        { city: "Paris", country: "França", nights: 3, transport: "TGV Lyria" },
+        { city: "Zurique & Alpes", country: "Suíça", nights: 2, transport: "Trem Panorâmico" },
+        { city: "Munique", country: "Alemanha", nights: 1, transport: "Retorno" }
+      ],
+      days: [
+        {
+          dayNumber: 1,
+          cityName: "Londres",
+          title: "Chegada · Westminster · Big Ben",
+          image: "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=1000&q=80",
+          summary: "Chegada a Londres com transfer privativo executivo. Check-in e primeiro passeio leve ao entardecer pelas margens do Rio Tâmisa e Westminster.",
+          period: "Tarde / Noite",
+          intensity: "Leve",
+          transportNote: "Transfer executivo do Aeroporto de Heathrow ao hotel central",
+          highlightExperience: "Recepção VIP & Fotos do Big Ben Iluminado",
+          activities: [
+            "Chegada ao hotel e check-in com assistente em português",
+            "Caminhada leve por Westminster Abbey e Praça do Parlamento",
+            "Primeiro contato visual com o Big Ben e o Rio Tâmisa",
+            "Jantar relaxante de boas-vindas em gastro-pub histórico"
+          ]
+        },
+        {
+          dayNumber: 2,
+          cityName: "Londres",
+          title: "Tower of London · Tower Bridge · St. Paul's · Covent Garden",
+          image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1000&q=80",
+          summary: "Imersão na história medieval britânica com visita às Joias da Coroa, travessia panorâmica da Tower Bridge e atmosfera festiva em Covent Garden.",
+          period: "Dia Inteiro",
+          intensity: "Moderado",
+          transportNote: "Metrô ou táxi privativo entre marcos históricos",
+          highlightExperience: "Acesso Prioritário às Joias da Coroa na Tower of London",
+          activities: [
+            "Acesso sem fila à Tower of London e Yeoman Warders tour",
+            "Caminhada pela passarela de vidro da Tower Bridge",
+            "Visita à majestosa Catedral de St. Paul's",
+            "Chá da tarde tradicional e street art em Covent Garden"
+          ]
+        },
+        {
+          dayNumber: 3,
+          cityName: "Londres",
+          title: "British Museum · Hyde Park · Buckingham Palace · London Eye",
+          image: "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1000&q=80",
+          summary: "Arte universal no British Museum com guia especialista em família, seguido por descanso nos Jardins Reais e vista 360° da London Eye ao pôr do sol.",
+          period: "Dia Inteiro",
+          intensity: "Moderado",
+          transportNote: "Caminhada leve por parques e centro",
+          highlightExperience: "Cápsula Privativa na London Eye ao Pôr do Sol",
+          activities: [
+            "Tour guiado e focado nas múmias e Pedra de Roseta no British Museum",
+            "Piquenique de charme ou almoço próximo a Hyde Park",
+            "Fotos externas no Palácio de Buckingham",
+            "Voo na London Eye com vista completa da metrópole"
+          ]
+        },
+        {
+          dayNumber: 4,
+          cityName: "Londres → Paris",
+          title: "Eurostar · Check-in · Trocadéro · Torre Eiffel",
+          image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1000&q=80",
+          summary: "Embarque no trem de alta velocidade Eurostar atravessando o Canal da Mancha. Chegada radiante a Paris e vista inesquecível da Torre Eiffel.",
+          period: "Manhã / Tarde / Noite",
+          intensity: "Leve",
+          transportNote: "Trem Eurostar (2h20) em Classe Premier",
+          highlightExperience: "Primeiro Olhar na Torre Eiffel a partir do Trocadéro",
+          activities: [
+            "Transfer para a estação St. Pancras e embarque no Eurostar",
+            "Chegada à Gare du Nord em Paris e transfer privativo para o hotel",
+            "Passeio no Trocadéro ao final da tarde",
+            "Espectáculo de luzes da Torre Eiffel de hora em hora"
+          ]
+        },
+        {
+          dayNumber: 5,
+          cityName: "Paris",
+          title: "Louvre · Tuileries · Concorde · Champs-Élysées · Arco do Triunfo",
+          image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1000&q=80",
+          summary: "Eixo monumental de Paris. Contemple a Mona Lisa com passe prioritário, caminhe pelos Jardins das Tulherias e suba ao topo do Arco do Triunfo.",
+          period: "Dia Inteiro",
+          intensity: "Intenso",
+          transportNote: "Caminhada em bulevares icônicos",
+          highlightExperience: "Acesso Timed-Entry Privativo no Museu do Louvre",
+          activities: [
+            "Entrada preferencial no Museu do Louvre (Mona Lisa & Vênus de Milo)",
+            "Caminhada relaxante nos Jardins das Tulherias",
+            "Passagem pela Place de la Concorde e compras na Champs-Élysées",
+            "Subida ao topo do Arco do Triunfo para panorama urbano"
+          ]
+        },
+        {
+          dayNumber: 6,
+          cityName: "Paris",
+          title: "Montmartre · Sacré-Cœur · Gastronomia · Cruzeiro no Sena",
+          image: "https://images.unsplash.com/photo-1509299349698-dd22323b5963?auto=format&fit=crop&w=1000&q=80",
+          summary: "Charmosa atmosfera boêmia dos artistas em Montmartre, seguido por degustação de crepes gourmet e encerramento com jantar em cruzeiro no Sena.",
+          period: "Dia Inteiro",
+          intensity: "Moderado",
+          transportNote: "Funicular de Montmartre & Barco envidraçado",
+          highlightExperience: "Cruzeiro Gastronômico Noturno com Músicos ao Vivo",
+          activities: [
+            "Passeio pelas ruelas de Montmartre e Basílica de Sacré-Cœur",
+            "Almoço em bistrô tradicional parisiense",
+            "Tarde para boutiques locais e chocolatarias no Le Marais",
+            "Cruzeiro noturno pelo Rio Sena com jantar harmonizado"
+          ]
+        },
+        {
+          dayNumber: 7,
+          cityName: "Paris → Zurique",
+          title: "Deslocamento · Centro Histórico · Lago de Zurique",
+          image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=1000&q=80",
+          summary: "Viagem de alta velocidade em direção aos Alpes Suíços. Aconchego na cidade histórica de Zurique e caminhada serena às margens do lago.",
+          period: "Manhã / Tarde",
+          intensity: "Leve",
+          transportNote: "Trem TGV Lyria (4h) Paris a Zurique",
+          highlightExperience: "Pôr do sol com vista dos Alpes a partir do Lago de Zurique",
+          activities: [
+            "Deslocamento confortável em trem panorâmico transfronteiriço",
+            "Check-in em hotel boutique em Zurique",
+            "Caminhada orientada pelas ruelas medievais da Altstadt",
+            "Passeio relaxante à beira do Lago de Zurique"
+          ]
+        },
+        {
+          dayNumber: 8,
+          cityName: "Zurique / Alpes",
+          title: "Experiência Alpina · Vila Alpina · Passeio Panorâmico",
+          image: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1000&q=80",
+          summary: "Excursão inesquecível ao coração das montanhas suíças com bondinho panorâmico, ar puro das alturas e jantar de fondue autêntico em chalé.",
+          period: "Dia Inteiro",
+          intensity: "Moderado",
+          transportNote: "Veículo privativo executivo para os Alpes",
+          highlightExperience: "Subida de Cable Car aos picos nevados e Fondue Suíço",
+          activities: [
+            "Saída em veículo privativo até vila alpina de cartão-postal",
+            "Passeio de bondinho de alta tecnologia com vistas espetaculares",
+            "Tempo livre para fotos, caminhada e contato com a neve",
+            "Jantar de fondue de queijo tradicional em chalé típico"
+          ]
+        },
+        {
+          dayNumber: 9,
+          cityName: "Zurique → Munique",
+          title: "Marienplatz · Viktualienmarkt · Centro Histórico · Jantar Bávaro",
+          image: "https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=1000&q=80",
+          summary: "Cruze os cenários da Baviera até Munique. Assista ao show do carilhão na Marienplatz e celebre a viagem em uma taverna bávara clássica.",
+          period: "Dia Inteiro",
+          intensity: "Moderado",
+          transportNote: "Trem Panorâmico (3h30) Zurique a Munique",
+          highlightExperience: "Degustação de Pretzel & Espectáculo Glockenspiel",
+          activities: [
+            "Travessia de trem entre Suíça e Alemanha",
+            "Check-in e caminhada até a Marienplatz para o carilhão Glockenspiel",
+            "Exploração das iguarias locais no mercado Viktualienmarkt",
+            "Jantar festivo de despedida em restaurante tradicional da Baviera"
+          ]
+        },
+        {
+          dayNumber: 10,
+          cityName: "Munique",
+          title: "Café da Manhã · Tempo Livre · Aeroporto · Retorno",
+          image: "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=1000&q=80",
+          summary: "Café da manhã relaxante na Baviera, tempo final para souvenirs e transfer privativo executivo para o aeroporto de Munique.",
+          period: "Manhã / Tarde",
+          intensity: "Leve",
+          transportNote: "Transfer executivo privativo para Aeroporto de Munique (MUC)",
+          highlightExperience: "Assistência de Embarque & Transfer VIP",
+          activities: [
+            "Café da manhã de despedida no hotel",
+            "Últimas compras no centro histórico de Munique",
+            "Check-out e transfer de luxo para o Aeroporto MUC",
+            "Embarque em voo de retorno ao Brasil com memórias inesquecíveis"
+          ]
+        }
+      ],
+      hotels: [
+        {
+          id: "hotel-london",
+          city: "Londres",
+          name: "The Rosewood London",
+          category: "5★ Luxo Boutique",
+          neighborhood: "Holborn / Covent Garden",
+          image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+          differentials: "Serviço de mordomo, localizado a poucos passos de Covent Garden e ideal para famílias.",
+          priceDemo: "R$ 4.200 / noite (DEMO)",
+          description: "Um palacete impressionante no coração de Londres combinando herança britânica com sofisticação contemporânea."
+        },
+        {
+          id: "hotel-paris",
+          city: "Paris",
+          name: "Hôtel Madame Rêve",
+          category: "5★ Design & Luxo",
+          neighborhood: "1º Arrondissement (Louvre)",
+          image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80",
+          differentials: "Vista panorâmica da Torre Eiffel, jardins no teto e localização a 300m do Museu do Louvre.",
+          priceDemo: "R$ 3.900 / noite (DEMO)",
+          description: "Hotel ícone parisiense com arquitetura acolhedora, gastronomia refinada e proximidade total dos maiores museus."
+        },
+        {
+          id: "hotel-zurich",
+          city: "Zurique",
+          name: "La Réserve Eden au Lac",
+          category: "5★ Superior Lakefront",
+          neighborhood: "Margem do Lago de Zurique",
+          image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+          differentials: "Design assinado por Philippe Starck, varandas privativas para o lago e ambiente sereno.",
+          priceDemo: "R$ 4.500 / noite (DEMO)",
+          description: "Um refúgio majestoso à beira do lago, oferecendo vista ininterrupta para as águas suíças e montanhas."
+        }
+      ],
+      experiences: [
+        { title: "Acesso Prioritário ao Louvre", type: "culture", city: "Paris", desc: "Guia especialista para ver a Mona Lisa sem filas.", image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=600&q=80" },
+        { title: "Cruzeiro Gastronômico no Sena", type: "gastronomy", city: "Paris", desc: "Jantar a bordo de barco envidraçado ilumina Paris.", image: "https://images.unsplash.com/photo-1509299349698-dd22323b5963?auto=format&fit=crop&w=600&q=80" },
+        { title: "Excursão aos Alpes Suíços", type: "nature", city: "Zurique", desc: "Subida panorâmica de bondinho com fondue em chalé.", image: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=600&q=80" },
+        { title: "Tower of London & Joias da Coroa", type: "culture", city: "Londres", desc: "Exploração privativa do castelo medieval britânico.", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80" },
+        { title: "London Eye Cápsula Privativa", type: "culture", city: "Londres", desc: "Vista 360° de toda a capital ao entardecer.", image: "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=600&q=80" },
+        { title: "Degustação Bávara no Viktualienmarkt", type: "gastronomy", city: "Munique", desc: "Sabores autênticos com pretzel e cervejas em Munique.", image: "https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=600&q=80" }
+      ]
+    };
+
+    /* ==========================================================================
+       2. STATE MANAGEMENT & GLOBALS
+       ========================================================================= */
+    let selectedTierKey = 'comfort';
+    let currentExpFilter = 'all';
+
+    /* ==========================================================================
+       3. RENDER ENGINE FOR ACCORDION ITINERARY (OPÇÃO 1)
+       ========================================================================== */
+    function renderAccordionItinerary() {
+      const container = document.getElementById('accordion-container');
+      if (!container) return;
+
+      let html = '';
+
+      TRAVEL_PROPOSAL_DATA.days.forEach((day, index) => {
+        const isFirst = index === 0;
+        const accordionId = `acc-day-${day.dayNumber}`;
+        const contentClass = isFirst ? 'active' : '';
+        const chevronRotation = isFirst ? 'rotate-180' : '';
+        const maxHeightStyle = isFirst ? 'style="max-height: 1200px; padding-top: 1rem;"' : '';
+
+        // Intensity color badge
+        let intensityColor = 'bg-green-500/10 text-green-700 border-green-500/30';
+        if (day.intensity === 'Moderado') intensityColor = 'bg-amber-500/10 text-amber-700 border-amber-500/30';
+        if (day.intensity === 'Intenso') intensityColor = 'bg-red-500/10 text-red-700 border-red-500/30';
+
+        html += `
+          <div class="border border-brand-gold/25 rounded-2xl overflow-hidden bg-brand-ivory shadow-xs hover:border-brand-gold/50 transition-all duration-300">
+            
+            <!-- Accordion Header Button -->
+            <button onclick="toggleAccordionItem('${accordionId}', this)" class="w-full px-5 py-4 flex items-center justify-between text-left focus:outline-none hover:bg-brand-paper/50 transition">
+              <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 rounded-xl gold-gradient-bg flex items-center justify-center text-brand-obsidian font-serif font-bold text-sm shadow-xs flex-shrink-0">
+                  D${day.dayNumber}
+                </div>
+                <div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-brand-gold font-bold">${day.cityName}</span>
+                    <span class="text-brand-gold/30">•</span>
+                    <span class="text-[10px] text-brand-muted font-medium">${day.period}</span>
+                  </div>
+                  <h3 class="text-base sm:text-lg font-serif font-bold text-brand-obsidian leading-snug">${day.title}</h3>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-3">
+                <span class="hidden sm:inline-block text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full border ${intensityColor}">
+                  Ritmo ${day.intensity}
+                </span>
+                <div class="w-8 h-8 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xs transition-transform duration-300 transform ${chevronRotation}">
+                  <i class="fa-solid fa-chevron-down"></i>
+                </div>
+              </div>
+            </button>
+
+            <!-- Accordion Content Body -->
+            <div id="${accordionId}" class="accordion-content ${contentClass} px-5 pb-6 border-t border-brand-gold/15" ${maxHeightStyle}>
+              
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-2">
+                
+                <!-- Photo Column -->
+                <div class="lg:col-span-5">
+                  <div class="relative rounded-xl overflow-hidden shadow-md h-52 sm:h-60 group">
+                    <img src="${day.image}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="${day.title}">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-3 left-3 right-3 text-white">
+                      <span class="text-[10px] uppercase font-bold tracking-widest text-brand-gold block">Destaque do Dia</span>
+                      <p class="text-xs font-serif font-bold">${day.highlightExperience}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Details & Activities Column -->
+                <div class="lg:col-span-7 space-y-4">
+                  
+                  <p class="text-xs text-brand-muted leading-relaxed font-light">${day.summary}</p>
+
+                  <!-- Transport Note Badge -->
+                  <div class="p-2.5 rounded-lg bg-brand-paper border border-brand-gold/20 flex items-center space-x-2 text-xs text-brand-obsidian">
+                    <i class="fa-solid fa-route text-brand-gold text-xs"></i>
+                    <span class="text-[11px] font-medium"><strong class="font-bold">Deslocamento:</strong> ${day.transportNote}</span>
+                  </div>
+
+                  <!-- Scheduled Activities List -->
+                  <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brand-gold block mb-2">Atividades Incluídas no Dia:</span>
+                    <ul class="space-y-1.5">
+        `;
+
+        day.activities.forEach(act => {
+          html += `
+            <li class="flex items-start text-xs text-brand-obsidian">
+              <i class="fa-solid fa-circle-check text-brand-gold text-[10px] mt-1 mr-2 flex-shrink-0"></i>
+              <span class="font-light">${act}</span>
+            </li>
+          `;
+        });
+
+        html += `
+                    </ul>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    /* ==========================================================================
+       4. ACCORDION INTERACTION LOGIC
+       ========================================================================== */
+    function toggleAccordionItem(id, btn) {
+      const content = document.getElementById(id);
+      const icon = btn.querySelector('.fa-chevron-down');
+
+      // Check if item is already active
+      const isActive = content.classList.contains('active');
+
+      // Close all accordion items for clean accordion UX
+      document.querySelectorAll('.accordion-content').forEach(el => {
+        el.classList.remove('active');
+        el.style.maxHeight = '0px';
+        el.style.paddingTop = '0px';
+      });
+
+      document.querySelectorAll('.fa-chevron-down').forEach(i => {
+        i.classList.remove('rotate-180');
+      });
+
+      // If it wasn't active, open it
+      if (!isActive) {
+        content.classList.add('active');
+        content.style.maxHeight = '1200px';
+        content.style.paddingTop = '1rem';
+        if (icon) icon.classList.add('rotate-180');
+      }
+    }
+
+    function expandAllAccordion() {
+      document.querySelectorAll('.accordion-content').forEach(el => {
+        el.classList.add('active');
+        el.style.maxHeight = '1200px';
+        el.style.paddingTop = '1rem';
+      });
+      document.querySelectorAll('.fa-chevron-down').forEach(i => {
+        i.classList.add('rotate-180');
+      });
+    }
+
+    function collapseAllAccordion() {
+      document.querySelectorAll('.accordion-content').forEach(el => {
+        el.classList.remove('active');
+        el.style.maxHeight = '0px';
+        el.style.paddingTop = '0px';
+      });
+      document.querySelectorAll('.fa-chevron-down').forEach(i => {
+        i.classList.remove('rotate-180');
+      });
+    }
+
+    /* ==========================================================================
+       5. RENDER HOTELS SECTION
+       ========================================================================== */
+    function renderHotels() {
+      const container = document.getElementById('hotels-container');
+      if (!container) return;
+
+      let html = '';
+
+      TRAVEL_PROPOSAL_DATA.hotels.forEach(hotel => {
+        html += `
+          <div class="bg-brand-ivory border border-brand-gold/25 rounded-2xl overflow-hidden shadow-xs hover:border-brand-gold transition duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="relative h-48 w-full overflow-hidden">
+                <img src="${hotel.image}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="${hotel.name}">
+                <div class="absolute top-3 left-3 bg-brand-obsidian/80 text-brand-gold text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
+                  ${hotel.category}
+                </div>
+                <div class="absolute top-3 right-3 bg-amber-500/20 text-amber-800 text-[9px] font-mono font-bold px-2 py-0.5 rounded border border-amber-500/30">
+                  DEMO
+                </div>
+              </div>
+
+              <div class="p-5 space-y-3">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brand-gold block">${hotel.city}</span>
+                    <h3 class="text-xl font-serif font-bold text-brand-obsidian">${hotel.name}</h3>
+                  </div>
+                </div>
+
+                <p class="text-xs text-brand-muted leading-relaxed font-light">${hotel.description}</p>
+
+                <div class="pt-2 border-t border-brand-gold/15">
+                  <span class="text-[10px] uppercase font-bold tracking-wider text-brand-gold block mb-1">Diferencial:</span>
+                  <p class="text-xs text-brand-obsidian font-medium">${hotel.differentials}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-5 pt-0 flex items-center justify-between">
+              <span class="text-xs font-mono font-bold text-brand-gold">${hotel.priceDemo}</span>
+              <button onclick="openHotelModal('${hotel.id}')" class="px-3.5 py-2 text-xs font-bold text-brand-gold border border-brand-gold/40 rounded-lg hover:bg-brand-gold hover:text-brand-obsidian transition">
+                Ver Hotel
+              </button>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    /* ==========================================================================
+       6. RENDER EXPERIENCES SECTION & FILTERS
+       ========================================================================== */
+    function renderExperiences() {
+      const container = document.getElementById('experiences-container');
+      if (!container) return;
+
+      const filtered = currentExpFilter === 'all' 
+        ? TRAVEL_PROPOSAL_DATA.experiences 
+        : TRAVEL_PROPOSAL_DATA.experiences.filter(exp => exp.type === currentExpFilter);
+
+      let html = '';
+
+      filtered.forEach(exp => {
+        html += `
+          <div class="bg-brand-ivory border border-brand-gold/20 rounded-2xl p-4 flex space-x-4 items-center shadow-xs hover:border-brand-gold/50 transition">
+            <img src="${exp.image}" class="w-20 h-20 rounded-xl object-cover shadow-xs flex-shrink-0" alt="${exp.title}">
+            <div>
+              <span class="text-[10px] uppercase font-bold tracking-wider text-brand-gold block">${exp.city}</span>
+              <h4 class="text-sm font-serif font-bold text-brand-obsidian mb-1">${exp.title}</h4>
+              <p class="text-[11px] text-brand-muted leading-snug">${exp.desc}</p>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function filterExperiences(category) {
+      currentExpFilter = category;
+      
+      document.querySelectorAll('.exp-chip').forEach(btn => {
+        btn.classList.remove('bg-brand-gold', 'text-brand-obsidian', 'active');
+        btn.classList.add('hover:bg-brand-gold/10');
+      });
+
+      event.target.classList.add('bg-brand-gold', 'text-brand-obsidian', 'active');
+      event.target.classList.remove('hover:bg-brand-gold/10');
+
+      renderExperiences();
+    }
+
+    /* ==========================================================================
+       7. COMMERCIAL TIER SELECTION ENGINE
+       ========================================================================== */
+    function selectTier(tierKey) {
+      selectedTierKey = tierKey;
+      const tierData = TRAVEL_PROPOSAL_DATA.tiers[tierKey];
+
+      document.querySelectorAll('.tier-card').forEach(card => {
+        card.classList.remove('border-brand-gold', 'shadow-xl', 'border-2');
+        card.classList.add('border-brand-gold/30');
+      });
+
+      const selectedCard = document.getElementById(`tier-card-${tierKey}`);
+      if (selectedCard) {
+        selectedCard.classList.add('border-brand-gold', 'border-2', 'shadow-xl');
+      }
+
+      // Update sticky bottom bar & modal labels
+      document.getElementById('sticky-tier-name').textContent = `Categoria ${tierData.name}`;
+      document.getElementById('sticky-tier-price').textContent = `${tierData.price} / pessoa`;
+      document.getElementById('modal-selected-tier-name').textContent = tierData.name;
+    }
+
+    /* ==========================================================================
+       8. MODAL HANDLERS
+       ========================================================================== */
+    function openBookingModal() {
+      document.getElementById('booking-modal').classList.remove('hidden');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('booking-modal').classList.add('hidden');
+    }
+
+    function openConsultantModal() {
+      openBookingModal();
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      closeBookingModal();
+      alert('Sua solicitação e proposta selecionada foram enviadas com sucesso ao consultor da agência! Entraremos em contato via WhatsApp em instantes.');
+    }
+
+    function openHotelModal(hotelId) {
+      const hotel = TRAVEL_PROPOSAL_DATA.hotels.find(h => h.id === hotelId);
+      if (!hotel) return;
+
+      const content = document.getElementById('hotel-modal-content');
+      content.innerHTML = `
+        <div class="space-y-4">
+          <img src="${hotel.image}" class="w-full h-56 object-cover rounded-xl shadow-xs" alt="${hotel.name}">
+          <div>
+            <span class="text-xs uppercase font-bold tracking-widest text-brand-gold block">${hotel.city} • ${hotel.category}</span>
+            <h3 class="text-2xl font-serif font-bold text-brand-obsidian">${hotel.name}</h3>
+            <p class="text-xs text-brand-muted font-mono mt-0.5">${hotel.neighborhood}</p>
+          </div>
+          <p class="text-xs text-brand-muted leading-relaxed font-light">${hotel.description}</p>
+          <div class="p-3 bg-brand-paper rounded-lg border border-brand-gold/20 text-xs">
+            <strong class="text-brand-gold block mb-1">Diferenciais e Mimos Inclusos:</strong>
+            <p class="text-brand-obsidian">${hotel.differentials}</p>
+          </div>
+          <div class="flex justify-between items-center pt-2">
+            <span class="text-xs font-mono font-bold text-brand-gold">${hotel.priceDemo}</span>
+            <button onclick="closeHotelModal()" class="px-5 py-2.5 rounded-xl gold-gradient-bg text-brand-obsidian text-xs font-bold uppercase tracking-wider">Fechar Detalhes</button>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('hotel-modal').classList.remove('hidden');
+    }
+
+    function closeHotelModal() {
+      document.getElementById('hotel-modal').classList.add('hidden');
+    }
+
+    function openArchitectureModal() {
+      document.getElementById('architecture-modal').classList.remove('hidden');
+    }
+
+    function closeArchitectureModal() {
+      document.getElementById('architecture-modal').classList.add('hidden');
+    }
+
+    /* ==========================================================================
+       9. INITIALIZATION ON DOM LOAD
+       ========================================================================== */
+    window.onload = function() {
+      renderAccordionItinerary();
+      renderHotels();
+      renderExperiences();
+      selectTier('comfort');
+    };
+  </script>
+
+  <!-- 
+  ==============================================================================
+  INSTRUÇÕES E ARQUITETURA TÉCNICA (SKILL 10 - TRAVEL PROPOSAL DESIGNER)
+  ==============================================================================
+  1. COMO EXECUTAR LOCALMENTE:
+     - Salve este arquivo como `index.html`.
+     - Abra diretamente no seu navegador favorito (Chrome, Safari, Edge, Firefox).
+     - Nenhuma dependência externa ou processo de compilação é necessário.
+
+  2. DESACOPLAMENTO DADOS x VISUAL:
+     - Todos os dados do roteiro residem no objeto `TRAVEL_PROPOSAL_DATA` no script.
+     - A apresentação é renderizada dinamicamente pelos motores JS.
+     - Para conectar a um backend real (LLM / Python / Node), basta substituir 
+       o objeto `TRAVEL_PROPOSAL_DATA` via API JSON.
+  ==============================================================================
+  -->
+</body>
+</html>

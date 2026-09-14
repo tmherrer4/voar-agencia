@@ -1,0 +1,43 @@
+/**
+ * VOAR OS — tema escuro do design system, escopado em .voar-os.
+ * Não toca nos tokens globais (:root) usados pela Proposal / shadcn.
+ * Valores espelham components/voar-os/tokens.ts — mantenha os dois em sincronia.
+ */
+.voar-os {
+  --voar-bg: #080808;
+  --voar-card: #121212;
+  --voar-card-hover: #181818;
+  --voar-border: #2a2a2a;
+  --voar-border-hover: #c8a35f;
+  --voar-text: #f5f5f5;
+  --voar-text-muted: #9a9a9a;
+  --voar-primary: #c8a35f;
+
+  background-color: var(--voar-bg);
+  color: var(--voar-text);
+}
+
+.bg-voar-base {
+  background-color: var(--voar-bg);
+}
+.bg-voar-card {
+  background-color: var(--voar-card);
+}
+.bg-voar-card-hover {
+  background-color: var(--voar-card-hover);
+}
+.border-voar {
+  border-color: var(--voar-border);
+}
+.border-voar-hover {
+  border-color: var(--voar-border-hover);
+}
+.text-voar {
+  color: var(--voar-text);
+}
+.text-voar-muted {
+  color: var(--voar-text-muted);
+}
+.text-voar-primary {
+  color: var(--voar-primary);
+}
